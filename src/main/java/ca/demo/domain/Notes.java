@@ -2,6 +2,7 @@ package ca.demo.domain;
 
 import javax.persistence.*;
 
+
 @Entity
 public class Notes {
 
