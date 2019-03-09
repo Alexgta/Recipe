@@ -2,6 +2,7 @@ package ca.demo.domain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
 import javax.persistence.*;
 
 
