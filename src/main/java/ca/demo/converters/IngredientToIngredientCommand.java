@@ -1,7 +1,7 @@
 package ca.demo.converters;
 
-import ca.demo.domain.Ingredient;
 import ca.demo.commands.IngredientCommand;
+import ca.demo.domain.Ingredient;
 import lombok.Synchronized;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
@@ -29,7 +29,7 @@ public class IngredientToIngredientCommand implements Converter<Ingredient, Ingr
         ingredientCommand.setId(ingredient.getId());
         ingredientCommand.setAmount(ingredient.getAmount());
         ingredientCommand.setDescription(ingredient.getDescription());
-        ingredientCommand.setUnitOfMeasure(uomConverter.convert(ingredient.getUom()));
+        ingredientCommand.setUom(uomConverter.convert(ingredient.getUom()));
         return ingredientCommand;
     }
 }

@@ -1,6 +1,7 @@
 package ca.demo.services;
 
 
+import ca.demo.commands.RecipeCommand;
 import ca.demo.converters.RecipeCommandToRecipe;
 import ca.demo.converters.RecipeToRecipeCommand;
 import ca.demo.domain.Recipe;
@@ -12,8 +13,6 @@ import org.mockito.MockitoAnnotations;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
-import org.junit.Assert;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.*;
@@ -55,13 +54,33 @@ public class RecipeServiceImplTest {
     }
 
     @Test
+    public void getRecipeCoomandByIdTest() throws Exception {
+        Recipe recipe = new Recipe();
+        recipe.setId(1L);
+        Optional<Recipe> recipeOptional = Optional.of(recipe);
+
+        when(recipeRepository.findById(anyLong())).thenReturn(recipeOptional);
+
+        RecipeCommand recipeCommand = new RecipeCommand();
+        recipeCommand.setId(1L);
+
+        when(recipeToRecipeCommand.convert(any())).thenReturn(recipeCommand);
+
+        RecipeCommand commandById = recipeService.findCommandById(1L);
+
+        assertNotNull("Null recipe returned", commandById);
+        verify(recipeRepository, times(1)).findById(anyLong());
+        verify(recipeRepository, never()).findAll();
+    }
+
+    @Test
     public void getRecipesTest() throws Exception {
 
         Recipe recipe = new Recipe();
         HashSet receipesData = new HashSet();
         receipesData.add(recipe);
 
-        when(recipeService.getRecipes()).thenReturn(receipesData);
+        when(recipeRepository.findAll()).thenReturn(receipesData);
 
         Set<Recipe> recipes = recipeService.getRecipes();
 

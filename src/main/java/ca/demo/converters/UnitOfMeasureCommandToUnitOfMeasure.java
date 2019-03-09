@@ -1,7 +1,7 @@
 package ca.demo.converters;
 
-import ca.demo.domain.UnitOfMeasure;
 import ca.demo.commands.UnitOfMeasureCommand;
+import ca.demo.domain.UnitOfMeasure;
 import lombok.Synchronized;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;

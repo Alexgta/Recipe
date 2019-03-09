@@ -1,7 +1,7 @@
 package ca.demo.converters;
 
-import ca.demo.domain.Notes;
 import ca.demo.commands.NotesCommand;
+import ca.demo.domain.Notes;
 import lombok.Synchronized;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;

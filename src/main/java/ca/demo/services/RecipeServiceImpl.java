@@ -1,10 +1,10 @@
 package ca.demo.services;
 
-import ca.demo.commands.RecipeCommand;
 import ca.demo.converters.RecipeCommandToRecipe;
 import ca.demo.converters.RecipeToRecipeCommand;
-import ca.demo.domain.Recipe;
 import ca.demo.repositories.RecipeRepository;
+import ca.demo.commands.RecipeCommand;
+import ca.demo.domain.Recipe;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,6 +47,12 @@ public class RecipeServiceImpl implements RecipeService {
         }
 
         return recipeOptional.get();
+    }
+
+    @Override
+    @Transactional
+    public RecipeCommand findCommandById(Long l) {
+        return recipeToRecipeCommand.convert(findById(l));
     }
 
     @Override

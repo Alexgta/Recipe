@@ -1,8 +1,8 @@
 package ca.demo.converters;
 
+import ca.demo.commands.RecipeCommand;
 import ca.demo.domain.Category;
 import ca.demo.domain.Recipe;
-import ca.demo.commands.RecipeCommand;
 import lombok.Synchronized;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
