@@ -1,10 +1,10 @@
 package ca.demo.services;
 
+import ca.demo.commands.RecipeCommand;
 import ca.demo.converters.RecipeCommandToRecipe;
 import ca.demo.converters.RecipeToRecipeCommand;
-import ca.demo.repositories.RecipeRepository;
-import ca.demo.commands.RecipeCommand;
 import ca.demo.domain.Recipe;
+import ca.demo.repositories.RecipeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -69,5 +69,4 @@ public class RecipeServiceImpl implements RecipeService {
     public void deleteById(Long idToDelete) {
         recipeRepository.deleteById(idToDelete);
     }
-
 }

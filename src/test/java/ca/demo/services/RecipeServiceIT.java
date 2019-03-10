@@ -6,9 +6,7 @@ import ca.demo.converters.RecipeCommandToRecipe;
 import ca.demo.converters.RecipeToRecipeCommand;
 import ca.demo.domain.Recipe;
 import ca.demo.repositories.RecipeRepository;
-
 import org.junit.Test;
-
 import org.junit.runner.RunWith;
 import org.junit.Assert;
 
